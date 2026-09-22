@@ -19,7 +19,19 @@ section {
 }
 body {
   overflow: hidden;
+  font-family: "Nesans", sans-serif;
 }
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* ----------------------------------- */
+/* font */
+/* ----------------------------------- */
+
 @font-face {
   font-family: "Pretendard";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2")
@@ -31,9 +43,15 @@ body {
   font-family: "Nesans";
   src: url(../font/Nesans.ttf) format("woff2");
 }
+@font-face {
+  font-family: "Cafe24Lovingu";
+  src: url(../font/Cafe24Lovingu.ttf) format("woff2");
+}
+
 /* ----------------------------------- */
 /* intro */
 /* ----------------------------------- */
+
 #intro {
   position: fixed;
   top: 0;
@@ -161,6 +179,7 @@ header h1 a {
 
 /* ----------------------------------- */
 /* visual */
+/* ----------------------------------- */
 #visual {
   position: sticky;
   top: 0;
@@ -171,7 +190,6 @@ header h1 a {
 .visual_pin {
   height: calc(100vh + 1500px);
 }
-
 #visual .video_wrap {
   padding-top: 80px;
   position: absolute;
@@ -238,7 +256,6 @@ header h1 a {
 }
 
 /* ----------------------------------- */
-/* ----------------------------------- */
 /* section1 */
 /* ----------------------------------- */
 #section1 {
@@ -290,40 +307,262 @@ header h1 a {
   line-height: 380px;
   margin: 0;
   width: 100%;
-  font-family: "Nesans", sans-serif;
   font-weight: normal;
 }
+
 /* ----------------------------------- */
 /* section2 */
 /* ----------------------------------- */
+
 #section2 {
   width: 100%;
-  background: url(../img/section2_bg.jpg) no-repeat center / cover fixed;
+  background: url(../img/section2_bg1.jpg) no-repeat center / cover fixed;
 }
+/* background */
+
 #section2 .inner {
+  padding-top: 80px;
   position: relative;
   width: 100%;
-  height: 800px;
+  height: 100vh;
 }
+
+/* section_tit */
+#section2 .section_tit {
+  padding-top: 30px;
+  text-align: center;
+  font-size: 84px;
+  font-family: "Cafe24Lovingu";
+  font-weight: 400;
+}
+#section2 .section_tit h2 {
+  position: relative;
+  display: inline-block;
+  font: inherit;
+}
+#section2 .section_tit .tit_base {
+  color: rgba(255, 255, 255, 0.4);
+}
+#section2 .section_tit .tit_fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff;
+  clip-path: inset(0 100% 0 0);
+}
+
+/* rooms */
 #section2 .rooms {
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
   position: absolute;
-  display: flex;
+  display: none;
   gap: 16px;
-
-  width: 75%;
-  background: #fff;
+  width: 1500px;
+  /* max-width: 1500px; */
+  background: #b09288;
+  color: #fff;
   padding: 80px;
 }
-/* #section2 .rooms > div {
-  padding: 16px;
-  box-sizing: border-box;
-} */
-#section2 .rooms .rooms_img li {
-  width: 250px;
+#section2 .rooms.on {
+  display: flex;
 }
-#section2 .rooms .rooms_img li video {
-  /* width: 100%; */
+/* rooms_intro */
+#section2 .rooms_intro {
+  flex: 0.6;
+  padding: 0px 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#section2 .rooms_intro::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+}
+#section2 .rooms_intro .rooms_title {
+  margin-bottom: 80px;
+}
+#section2 .rooms_intro .rooms_title h3 {
+  padding: 8px 4px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 30%
+  );
+  font-size: clamp(20px, 2.8vw, 50px);
+  font-weight: 400;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+  width: 200px;
+}
+#section2 .rooms_title .count {
+  margin-top: 12px;
+  font-size: 13px;
+}
+#section2 .rooms_nav {
+  display: flex;
+  /* justify-content: center; */
+  padding-left: 25px;
+  align-items: center;
+  gap: 16px;
+  margin-top: auto;
+}
+
+#section2 .rooms_nav button {
+  border: 0;
+  padding: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+}
+#section2 .rooms_nav .room_number {
+  font-size: 13px;
+}
+
+/* rooms_main */
+#section2 .rooms_main {
+  flex: 0 1 780px;
+  position: relative;
+}
+#section2 .rooms_main ul {
+  width: 100%;
+  aspect-ratio: 6.5/ 4;
+  object-fit: cover;
+  position: relative;
+  overflow: hidden;
+}
+#section2 .rooms_main ul::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+#section2 .rooms_main:hover ul::after {
+  opacity: 1;
+}
+#section2 .rooms_main:hover .rooms_main_nav button {
+  opacity: 1;
+}
+#section2 .rooms_main ul li {
+  position: absolute;
+  inset: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s;
+}
+#section2 .rooms_main ul li.on {
+  opacity: 1;
+}
+#section2 .rooms_main video {
+  width: 100%;
+  display: block;
+}
+#section2 .rooms_main ul li img,
+#section2 .rooms_main ul li video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+/* rooms_main-nav */
+#section2 .rooms_main_nav {
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 15px;
+  padding-bottom: 10px;
+  z-index: 2;
+  bottom: 0;
+}
+#section2 .rooms_main_nav button {
+  font-size: 24px;
+  border: 0;
+  padding: 0;
+  background: none;
+  font-size: 13px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 1s;
+  opacity: 0;
+}
+#section2 .rooms_main_nav button span {
+  font-size: 20px;
+}
+#section2 .rooms_main_nav button:nth-child(1):hover {
+  transform: translateX(-20%);
+}
+#section2 .rooms_main_nav button:nth-child(3):hover {
+  transform: translateX(20%);
+}
+#section2 .rooms_main_nav button span {
+  display: block;
+}
+
+/* rooms_main-progress */
+#section2 .rooms_main_nav .progress {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: #fff;
+}
+#section2 .rooms_main_nav .progress span {
+  font-size: 14px;
+}
+#section2 .progress_bar {
+  position: relative;
+  width: 110px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+#section2 .progress_bar span {
+  font-size: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.333%;
+  height: 100%;
+  background: #fff;
+}
+
+/* rooms_detail */
+#section2 .rooms_detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  word-break: keep-all;
+}
+#section2 .rooms_detail h3 {
+  font-size: 30px;
+  font-weight: normal;
+  margin-bottom: 0px;
+}
+#section2 .rooms_detail .strong {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+#section2 .rooms_detail .description {
+  padding-left: 5px;
+  font-size: 13px;
+  font-family: "Caudex";
 }

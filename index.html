@@ -4,12 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peach Beach Pool Villa</title>
+
+    <!--Google Font-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caudex:ital,wght@0,400;0,700;1,400;1,700&family=Oswald:wght@200..700&family=Pacifico&family=Whisper&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap"
       rel="stylesheet"
     />
+
+    <!--Font Awesome-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
+      integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!--Custom Css-->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -188,35 +201,336 @@
       </section>
       <section id="section2">
         <div class="inner">
-          <div class="rooms">
-            <div class="rooms_info">
-              <h3>Peach #1</h3>
-              <p class="count">기준 2인 - 최대 4인</p>
-              <p class="info">
-                대형수영장 바로 옆에 위치하며<br />
-                개별바비큐 방갈로와 평상 이용이 가능한 카라반입니다.
-              </p>
+          <div class="section_tit">
+            <h2>
+              <span class="tit_base">Rooms Information</span>
+              <span class="tit_fill">Rooms Information</span>
+            </h2>
+          </div>
+          <div class="rooms on">
+            <div class="rooms_intro">
+              <div class="rooms_title">
+                <h3>Peach # 1</h3>
+                <p class="count">
+                  <i class="fa-solid fa-user"></i>기준 2인 - 최대 4인
+                </p>
+              </div>
+              <!-- <p class="intro_text">
+                피치비치 풀빌라는 당신을 기다리는 비밀스러운 핑크빛
+                낙원입니다.<br />
+                마치 자연이 그려낸 예술작품 같은 해변에서,<br />나만의 고요한
+                순간을 누릴 수 있습니다.
+              </p> -->
+              <div class="rooms_nav">
+                <button type="button" class="prev">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <span class="room_number"></span>
+
+                <button type="button" class="next">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
             </div>
-            <div class="rooms_img">
+            <div class="rooms_main">
               <ul>
                 <li>
                   <video autoplay muted loop playsinline>
                     <source src="img/room1_1.mp4" />
                   </video>
                 </li>
-                <li><img src="img/room1_2.jpg" /></li>
+                <li>
+                  <img src="img/room1_2.jpg" />
+                </li>
+                <li>
+                  <img src="img/room1_3.jpg" />
+                </li>
+                <li>
+                  <img src="img/room1_4.jpg" />
+                </li>
+                <li>
+                  <img src="img/room1_5.jpg" />
+                </li>
+                <li>
+                  <img src="img/room1_6.jpg" />
+                </li>
               </ul>
+              <div class="rooms_main_nav">
+                <button type="button" class="prev">
+                  <span>PREV</span>
+                </button>
+                <div class="progress">
+                  <span class="current">01</span>
+                  <div class="progress_bar">
+                    <span></span>
+                  </div>
+                  <span class="total">03</span>
+                </div>
+                <button type="button" class="next">
+                  <span>NEXT</span>
+                </button>
+              </div>
             </div>
-            <div class="">기타내용test</div>
+            <div class="rooms_detail">
+              <div class="rooms_info">
+                <h3>Room info</h3>
+                <p class="description">
+                  높은 층고에 전체 개방이 되는 폴딩도어를 열면 아름다운 남해
+                  바다와 그림같은 뷰가 펼쳐집니다. 넓은 수영장에서 즐기는
+                  우리만의 프라이빗한 공간과 조적욕적에서 즐기는 야외온천
+                  느낌으로 휴식을 즐겨보세요. 피치비치만의 감성으로 즐기는
+                  바베큐와 조식서비스 또한 매력적입니다.
+                </p>
+              </div>
+              <div class="amenities">
+                <h3>Amenities</h3>
+                <p class="description">
+                  침대 · 에어컨 · 소파 · 옷걸이 · 가운 · 보보비데 · 휴젠트 ·
+                  공기청정기 · 스텐바이미 · 거울 · 식탁 · 냉장고 · 전자렌지 ·
+                  전기포트 · 인덕션 · 정수기 · 주방집기일체 · 드라이기 · 샴푸 ·
+                  린스 · 바디워시 · 바디타올 · 치약 · 비누 · 수건
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rooms">
+            <div class="rooms_intro">
+              <div class="rooms_title">
+                <h3>Peach # 2</h3>
+                <p class="count">
+                  <i class="fa-solid fa-user"></i>기준 4인 - 최대 6인
+                </p>
+              </div>
+              <div class="rooms_nav">
+                <button type="button" class="prev">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+
+                <span class="room_number"></span>
+
+                <button type="button" class="next">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_main">
+              <ul>
+                <li class="on">
+                  <video autoplay muted loop playsinline>
+                    <source src="img/room2_1.mp4" />
+                  </video>
+                </li>
+                <li>
+                  <img src="img/room2_2.jpg" />
+                </li>
+                <li>
+                  <img src="img/room2_3.jpg" />
+                </li>
+                <li>
+                  <img src="img/room2_4.jpg" />
+                </li>
+                <li>
+                  <img src="img/room2_5.jpg" />
+                </li>
+              </ul>
+              <div class="rooms_main_nav">
+                <button type="button" class="prev">
+                  <span>PREV</span>
+                </button>
+                <div class="progress">
+                  <span class="current">01</span>
+                  <div class="progress_bar">
+                    <span></span>
+                  </div>
+                  <span class="total">03</span>
+                </div>
+                <button type="button" class="next">
+                  <span>NEXT</span>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_detail">
+              <div class="rooms_info">
+                <h3>Room info</h3>
+                <p class="description">
+                  탁 트인 창 너머로 펼쳐지는 남해의 풍경과 따스한 햇살이 공간
+                  가득 스며듭니다. 여유롭게 이어지는 실내와 야외 공간에서 바다를
+                  바라보며 느긋한 시간을 보내보세요. 낮에는 반짝이는 바다와
+                  함께, 저녁에는 노을로 물드는 피치비치만의 낭만적인 분위기를
+                  즐길 수 있습니다.
+                </p>
+              </div>
+              <div class="amenities">
+                <h3>Amenities</h3>
+                <p class="description">
+                  침대 · 에어컨 · 소파 · 옷걸이 · 가운 · 보보비데 · 휴젠트 ·
+                  공기청정기 · 스텐바이미 · 거울 · 식탁 · 냉장고 · 전자렌지 ·
+                  전기포트 · 인덕션 · 정수기 · 주방집기일체 · 드라이기 · 샴푸 ·
+                  린스 · 바디워시 · 바디타올 · 치약 · 비누 · 수건
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rooms">
+            <div class="rooms_intro">
+              <div class="rooms_title">
+                <h3>Peach # 3</h3>
+                <p class="count">
+                  <i class="fa-solid fa-user"></i>기준 2인 - 최대 4인
+                </p>
+              </div>
+              <div class="rooms_nav">
+                <button type="button" class="prev">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <span class="room_number"></span>
+                <button type="button" class="next">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_main">
+              <ul>
+                <li class="on">
+                  <video autoplay muted loop playsinline>
+                    <source src="img/room3_1.mp4" />
+                  </video>
+                </li>
+                <li>
+                  <img src="img/room3_2.jpg" />
+                </li>
+                <li>
+                  <img src="img/room3_3.jpg" />
+                </li>
+                <li>
+                  <img src="img/room3_4.jpg" />
+                </li>
+              </ul>
+              <div class="rooms_main_nav">
+                <button type="button" class="prev">
+                  <span>PREV</span>
+                </button>
+                <div class="progress">
+                  <span class="current">01</span>
+                  <div class="progress_bar">
+                    <span></span>
+                  </div>
+                  <span class="total">03</span>
+                </div>
+                <button type="button" class="next">
+                  <span>NEXT</span>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_detail">
+              <div class="rooms_info">
+                <h3>Room info</h3>
+                <p class="description">
+                  시원하게 펼쳐진 남해 바다를 가장 가까이에서 마주하며 일상에서
+                  벗어난 여유를 느껴보세요. 편안한 공간에서 바라보는 아름다운
+                  오션뷰와 프라이빗한 휴식이 여행의 순간을 더욱 특별하게
+                  만들어줍니다. 천천히 흘러가는 시간 속에서 피치비치만의 감성과
+                  함께 온전한 쉼을 경험해보세요. 즐길 수 있습니다.
+                </p>
+              </div>
+              <div class="amenities">
+                <h3>Amenities</h3>
+                <p class="description">
+                  침대 · 에어컨 · 소파 · 옷걸이 · 가운 · 보보비데 · 휴젠트 ·
+                  공기청정기 · 스텐바이미 · 거울 · 식탁 · 냉장고 · 전자렌지 ·
+                  전기포트 · 인덕션 · 정수기 · 주방집기일체 · 드라이기 · 샴푸 ·
+                  린스 · 바디워시 · 바디타올 · 치약 · 비누 · 수건
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="rooms">
+            <div class="rooms_intro">
+              <div class="rooms_title">
+                <h3>Peach # 4</h3>
+                <p class="count">
+                  <i class="fa-solid fa-user"></i>
+                  기준 4인 - 최대 6인
+                </p>
+              </div>
+              <div class="rooms_nav">
+                <button type="button" class="prev">
+                  <i class="fa-solid fa-caret-left"></i>
+                </button>
+                <span class="room_number"></span>
+                <button type="button" class="next">
+                  <i class="fa-solid fa-caret-right"></i>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_main">
+              <ul>
+                <li>
+                  <img src="img/room4_1.jpg" />
+                </li>
+                <li>
+                  <img src="img/room4_2.jpg" />
+                </li>
+                <li>
+                  <img src="img/room4_3.jpg" />
+                </li>
+                <li>
+                  <img src="img/room4_4.jpg" />
+                </li>
+                <li>
+                  <img src="img/room4_5.jpg" />
+                </li>
+              </ul>
+              <div class="rooms_main_nav">
+                <button type="button" class="prev">
+                  <span>PREV</span>
+                </button>
+                <div class="progress">
+                  <span class="current">01</span>
+                  <div class="progress_bar">
+                    <span></span>
+                  </div>
+                  <span class="total">03</span>
+                </div>
+                <button type="button" class="next">
+                  <span>NEXT</span>
+                </button>
+              </div>
+            </div>
+            <div class="rooms_detail">
+              <div class="rooms_info">
+                <h3>Room info</h3>
+                <p class="description">
+                  눈앞에 펼쳐지는 푸른 남해와 자연스럽게 어우러진 공간에서
+                  한적한 휴식을 즐겨보세요. 햇살이 머무는 낮부터 붉게 물드는
+                  노을까지 시간에 따라 달라지는 풍경을 감상할 수 있습니다.
+                  사랑하는 사람들과 함께하는 여유로운 시간과 피치비치만의 특별한
+                  감성이 여행의 마지막 순간까지 이어집니다.
+                </p>
+              </div>
+              <div class="amenities">
+                <h3>Amenities</h3>
+                <p class="description">
+                  침대 · 에어컨 · 소파 · 옷걸이 · 가운 · 보보비데 · 휴젠트 ·
+                  공기청정기 · 스텐바이미 · 거울 · 식탁 · 냉장고 · 전자렌지 ·
+                  전기포트 · 인덕션 · 정수기 · 주방집기일체 · 드라이기 · 샴푸 ·
+                  린스 · 바디워시 · 바디타올 · 치약 · 비누 · 수건
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+      <section id="section3"></section>
     </main>
     <footer></footer>
+
     <!--GSAP-->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
-    <!--custom-->
+
+    <!--Custom JS-->
     <script src="script/custom.js"></script>
   </body>
 </html>
