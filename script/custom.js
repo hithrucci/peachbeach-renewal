@@ -283,8 +283,10 @@ roomMain.forEach((roomMain) => {
    ROOMS CHANGE
 =================================== */
 
-const section2 = document.querySelector("#section2");
 const rooms = document.querySelectorAll("#section2 .rooms");
+
+const bg1 = document.querySelector("#section2 .bg1");
+const bg2 = document.querySelector("#section2 .bg2");
 
 const roomBackgrounds = [
   "img/section2_bg1.jpg",
@@ -294,9 +296,13 @@ const roomBackgrounds = [
 ];
 
 let roomIndex = 0;
+let activeBg = bg1;
+
+// 초기 배경
+bg1.style.backgroundImage = `url("${roomBackgrounds[0]}")`;
 
 // 객실 변경
-function changeRoom() {
+function changeRoom(changeBackground = true) {
   rooms.forEach((room) => {
     room.classList.remove("on");
   });
@@ -311,8 +317,30 @@ function changeRoom() {
 
   roomNumber.textContent = `${String(roomIndex + 1).padStart(2, "0")} / ${String(rooms.length).padStart(2, "0")}`;
 
-  // section2 배경 변경
-  section2.style.backgroundImage = `url("${roomBackgrounds[roomIndex]}")`;
+  // 배경 변경
+  if (changeBackground) {
+    const nextBg = activeBg === bg1 ? bg2 : bg1;
+
+    nextBg.style.backgroundImage = `url("${roomBackgrounds[roomIndex]}")`;
+
+    gsap.set(nextBg, {
+      opacity: 0,
+    });
+
+    gsap.to(nextBg, {
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.inOut",
+    });
+
+    gsap.to(activeBg, {
+      opacity: 0,
+      duration: 0.8,
+      ease: "power2.inOut",
+    });
+
+    activeBg = nextBg;
+  }
 }
 
 // 객실 PREV / NEXT
@@ -344,4 +372,4 @@ rooms.forEach((room) => {
 });
 
 // 초기 상태
-changeRoom();
+changeRoom(false);

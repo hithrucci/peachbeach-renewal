@@ -120,7 +120,12 @@ select {
   height: 45px;
   background: url("../img/intro_logo_text2.png") no-repeat center / cover;
 }
-
+.inner {
+  width: 90%;
+  max-width: 1920px;
+  margin: 0 auto;
+  /* padding: 0 5%; */
+}
 /* ----------------------------------- */
 /* header */
 /* ----------------------------------- */
@@ -135,9 +140,6 @@ header .inner {
   justify-content: space-between;
   align-items: center;
   height: 80px;
-  width: 90%;
-  margin: 0 auto;
-  max-width: 1780px;
 }
 header h1 {
   width: 80px;
@@ -194,7 +196,7 @@ header h1 a {
   padding-top: 80px;
   position: absolute;
   width: 70%;
-  height: 50vh;
+  aspect-ratio: 1500 / 600;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -261,11 +263,7 @@ header h1 a {
 #section1 {
   padding-top: 80px;
 }
-#section1 .inner {
-  width: 90%;
-  max-width: 1780px;
-  margin: 0px auto;
-}
+
 #section1 .visual_roll {
   width: 100%;
   height: 400px;
@@ -291,10 +289,10 @@ header h1 a {
   }
 }
 #section1 .mainText {
-  padding-left: 10px;
 }
 #section1 .mainText p {
-  font-size: 16px;
+  padding-left: 10px;
+  font-size: clamp(16px, 0.9vw, 22px);
   color: #333;
   margin-bottom: 40px;
   font-family: "Pretendard";
@@ -302,9 +300,9 @@ header h1 a {
 }
 #section1 .mainText h2 {
   color: #f1927b;
-  overflow: hidden;
-  font-size: 19vw;
-  line-height: 380px;
+  /* overflow: hidden; */
+  font-size: clamp(88px, 19vw, 390px);
+  /* line-height: 380px; */
   margin: 0;
   width: 100%;
   font-weight: normal;
@@ -316,15 +314,34 @@ header h1 a {
 
 #section2 {
   width: 100%;
-  background: url(../img/section2_bg1.jpg) no-repeat center / cover fixed;
+  position: relative;
+  overflow: hidden;
+  background: #b09288;
 }
 /* background */
+#section2 .section_bg {
+  position: absolute;
+  inset: 0;
+  background: no-repeat center / cover;
+  pointer-events: none;
+}
 
+#section2 .bg1 {
+  z-index: 0;
+  opacity: 1;
+}
+
+#section2 .bg2 {
+  z-index: 0;
+  opacity: 0;
+}
+
+/* inner */
 #section2 .inner {
   padding-top: 80px;
   position: relative;
-  width: 100%;
   height: 100vh;
+  max-height: 1000px;
 }
 
 /* section_tit */
@@ -359,7 +376,9 @@ header h1 a {
   position: absolute;
   display: none;
   gap: 16px;
-  width: 1500px;
+  width: clamp(1500px, 70vw, 1800px);
+  aspect-ratio: 1500 / 600;
+  max-width: 1800px;
   /* max-width: 1500px; */
   background: #b09288;
   color: #fff;
@@ -565,4 +584,21 @@ header h1 a {
   padding-left: 5px;
   font-size: 13px;
   font-family: "Caudex";
+}
+
+/* ----------------------------------- */
+/* section3 */
+/* ----------------------------------- */
+
+/* inner */
+#section3 {
+  padding-top: 80px;
+}
+#section3 .inner {
+  width: 90%;
+  max-width: 1920px;
+}
+#section3 .section_tit h2 {
+  font-family: "Caudex";
+  font-weight: normal;
 }
