@@ -592,13 +592,156 @@ header h1 a {
 
 /* inner */
 #section3 {
-  padding-top: 80px;
+  padding: 80px 0px;
 }
 #section3 .inner {
   width: 90%;
   max-width: 1920px;
 }
+#section3 .section_tit {
+  margin-bottom: 50px;
+}
 #section3 .section_tit h2 {
   font-family: "Caudex";
   font-weight: normal;
+}
+#section3 .facilities {
+  overflow: hidden;
+}
+#section3 .facilities_track {
+  display: flex;
+}
+#section3 .facility {
+  padding: 0px 30px;
+  box-sizing: content-box;
+  flex-shrink: 0;
+}
+#section3 .facility_text {
+  margin-top: 24px;
+}
+#section3 .facility_text h4 {
+  font-weight: 200;
+  font-size: 40px;
+}
+#section3 .facility_text p {
+  font-size: 15px;
+}
+
+/* facility1 */
+#section3 .facility:nth-child(odd) {
+  max-width: 760px;
+}
+#section3 .facility:nth-child(odd) .facility_image {
+  max-width: 820px;
+  aspect-ratio: 760 / 500;
+}
+#section3 .facility:nth-child(odd) .facility_text {
+  display: flex;
+  justify-content: space-between;
+}
+#section3 .facility:nth-child(odd) .facility_text h4,
+#section3 .facility:nth-child(odd) .facility_text p {
+  width: 50%;
+}
+
+/* facility2 */
+#section3 .facility:nth-child(even) {
+  margin-top: 80px;
+  max-width: 350px;
+}
+#section3 .facility:nth-child(even) video {
+  max-width: 350px;
+}
+#section3 .facility:nth-child(even) .facility_text p {
+  margin-top: 20px;
+}
+
+/* ----------------------------------- */
+/* footer */
+/* ----------------------------------- */
+
+footer {
+  background: #dbd4cf;
+}
+footer .inner {
+  width: 80%;
+  max-width: 1920px;
+  margin: 0px auto;
+  display: flex;
+  justify-content: space-between;
+  height: 400px;
+}
+footer .inner > div {
+  width: 40%;
+}
+footer .info {
+  font-family: "Pretendard";
+}
+footer .info .phone {
+  color: #4a4139;
+  font-size: 26px;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  margin: 170px 0px 30px 0px;
+}
+footer .info > div:not(.phone) {
+  margin-bottom: 5px;
+  font-size: 15px;
+  font-weight: normal;
+  color: rgb(74, 65, 57);
+}
+footer .info span {
+  font-weight: 700;
+}
+footer .sns {
+  text-align: right;
+}
+footer .sns .booking {
+  color: #4f3737;
+  margin-top: 100px;
+  margin-bottom: 30px;
+  transition: 1s;
+  border: 1px solid rgba(79, 55, 55, 0.5);
+  padding: 15px 30px;
+  border-radius: 60%;
+  font-weight: bold;
+  display: inline-block;
+  font-family: "Caudex";
+}
+footer .sns .booking:hover {
+  color: #fff;
+  background-color: #f1927b;
+  border-color: rgba(0, 0, 0, 0);
+}
+footer .sns .rinks {
+  display: flex;
+  justify-content: flex-end;
+  font-family: "Pretendard";
+  font-size: 16px;
+  margin-bottom: 50px;
+  height: 20px;
+  align-items: center;
+}
+footer .sns .rinks > span {
+  height: 100%;
+  width: 1px;
+  margin: 0px 15px;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+footer .sns .rinks > a {
+  color: #000;
+  font-weight: 400;
+}
+footer .sns .copy {
+  font-family: "Lato";
+  color: #4a4139;
+  font-size: 12px;
+  line-height: 25px;
+}
+footer .sns .copy > a {
+  margin-left: 10px;
+}
+footer .sns .admin {
+  text-decoration: underline;
 }

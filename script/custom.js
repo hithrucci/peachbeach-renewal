@@ -373,3 +373,31 @@ rooms.forEach((room) => {
 
 // 초기 상태
 changeRoom(false);
+/* ===================================
+   SECTION 3
+   FACILITIES HORIZONTAL SCROLL
+=================================== */
+
+const facilities = document.querySelector("#section3 .facilities");
+const facilitiesTrack = document.querySelector("#section3 .facilities_track");
+
+const facilitiesScroll = gsap.to(facilitiesTrack, {
+  x: () => -(facilitiesTrack.scrollWidth - facilities.clientWidth),
+
+  ease: "none",
+
+  scrollTrigger: {
+    trigger: "#section3",
+    start: "top top",
+
+    end: () => `+=${facilitiesTrack.scrollWidth - facilities.clientWidth}`,
+
+    pin: true,
+    scrub: 1,
+
+    invalidateOnRefresh: true,
+
+    // 작업 끝나면 false
+    markers: true,
+  },
+});
