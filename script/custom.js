@@ -408,6 +408,7 @@ rooms.forEach((room) => {
 
 // 초기 상태
 changeRoom(false);
+
 /* ===================================
    SECTION 3
    FACILITIES HORIZONTAL SCROLL
@@ -423,7 +424,8 @@ const facilitiesScroll = gsap.to(facilitiesTrack, {
 
   scrollTrigger: {
     trigger: "#section3",
-    start: "5% top",
+
+    start: () => (window.innerWidth <= 1500 ? "top top" : "5% top"),
 
     end: () => `+=${facilitiesTrack.scrollWidth - facilities.clientWidth}`,
 
