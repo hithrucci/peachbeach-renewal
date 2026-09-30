@@ -119,7 +119,49 @@ if (introSkip) {
       "<0.3",
     );
 }
+/* ===================================
+   HEADER SCROLL
+=================================== */
 
+const header = document.querySelector("header");
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  // 최상단
+  if (currentScrollY <= 0) {
+    gsap.to(header, {
+      yPercent: 0,
+      duration: 0.2,
+      overwrite: true,
+    });
+
+    lastScrollY = currentScrollY;
+    return;
+  }
+
+  // 아래로 스크롤 → 숨김
+  if (currentScrollY > lastScrollY) {
+    gsap.to(header, {
+      yPercent: -100,
+      duration: 0.2,
+      overwrite: true,
+    });
+  }
+
+  // 위로 스크롤 → 표시
+  else if (currentScrollY < lastScrollY) {
+    gsap.to(header, {
+      yPercent: 0,
+      duration: 0.2,
+      overwrite: true,
+    });
+  }
+
+  lastScrollY = currentScrollY;
+});
 /* ===================================
    VISUAL SCROLL
 =================================== */
@@ -131,9 +173,6 @@ function initVisualScroll() {
       start: "20% top",
       end: "bottom bottom",
       scrub: 1,
-
-      // 작업 끝나면 false
-      // markers: true,
     },
   });
 
@@ -188,9 +227,6 @@ gsap.fromTo(
       trigger: "#section1 .mainText h2",
       start: "top 80%",
       toggleActions: "play none none reverse",
-
-      // 작업 끝나면 false
-      // markers: true,
     },
   },
 );
@@ -209,7 +245,7 @@ gsap.to("#section2 .section_tit .tit_fill", {
     start: "50% 70%",
     end: "top 20%",
     scrub: 1,
-    markers: true,
+    markers: false,
   },
 });
 
@@ -284,7 +320,6 @@ roomMain.forEach((roomMain) => {
 =================================== */
 
 const rooms = document.querySelectorAll("#section2 .rooms");
-
 const bg1 = document.querySelector("#section2 .bg1");
 const bg2 = document.querySelector("#section2 .bg2");
 
@@ -388,7 +423,7 @@ const facilitiesScroll = gsap.to(facilitiesTrack, {
 
   scrollTrigger: {
     trigger: "#section3",
-    start: "top top",
+    start: "5% top",
 
     end: () => `+=${facilitiesTrack.scrollWidth - facilities.clientWidth}`,
 
@@ -396,8 +431,6 @@ const facilitiesScroll = gsap.to(facilitiesTrack, {
     scrub: 1,
 
     invalidateOnRefresh: true,
-
-    // 작업 끝나면 false
-    markers: true,
+    markers: false,
   },
 });
