@@ -126,9 +126,11 @@ select {
   margin: 0 auto;
   /* padding: 0 5%; */
 }
+
 /* ----------------------------------- */
 /* header */
 /* ----------------------------------- */
+
 header {
   position: fixed;
   top: 0;
@@ -297,8 +299,6 @@ header h1 a {
     transform: translateX(calc(-50% - 5px));
   }
 }
-#section1 .mainText {
-}
 #section1 .mainText p {
   padding-left: 10px;
   font-size: clamp(16px, 0.9vw, 22px);
@@ -320,7 +320,12 @@ header h1 a {
 /* ----------------------------------- */
 /* section2 */
 /* ----------------------------------- */
-
+#section2 .room_info_btn {
+  display: none;
+}
+#section2 .room_info_close {
+  display: none;
+}
 #section2 {
   width: 100%;
   position: relative;
@@ -421,7 +426,7 @@ header h1 a {
     rgba(255, 255, 255, 0.25) 0%,
     rgba(255, 255, 255, 0) 30%
   );
-  font-size: clamp(20px, 2.8vw, 50px);
+  font-size: clamp(30px, 2.8vw, 50px);
   font-weight: 400;
   text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
   white-space: nowrap;
@@ -794,6 +799,23 @@ footer .sns .admin {
   }
 }
 @media (max-width: 1400px) {
+  #visual .video_wrap {
+    padding-top: 80px;
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1500 / 800;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    z-index: 2;
+    /* background-color: rgb(2, 2, 2); */
+  }
+
+  #section1 {
+    padding-top: 30px;
+  }
+
   /* ----------------------------------- */
   /* section2 */
   /* ----------------------------------- */
@@ -1046,5 +1068,431 @@ footer .sns .admin {
     top: 50%;
     transform: translateY(-50%);
     background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    background-color: rgb(236, 235, 232);
+  }
+  /* ----------------------------------- */
+  /* header */
+  /* ----------------------------------- */
+
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent;
+    z-index: 100;
+    transition: 0.4s;
+  }
+  header:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+  header.hide {
+    transform: translateY(-100%);
+  }
+  header .inner {
+    display: block;
+  }
+  header h1 {
+    display: none;
+  }
+
+  /*gnb*/
+  .gnb {
+    width: 100%;
+    height: 100%;
+  }
+  .gnb ul {
+    display: flex;
+    font-family: "Caudex", serif;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .gnb ul li a {
+    font-size: clamp(12px, 3vw, 15px);
+    padding: 5px 10px;
+  }
+  .gnb ul li:last-child a {
+    padding: clamp(6px, 1.5vw, 15px) clamp(12px, 3vw, 30px);
+  }
+
+  /* ----------------------------------- */
+  /* visual */
+  /* ----------------------------------- */
+
+  #visual .video_wrap {
+    padding-top: 0;
+    width: 100%;
+    aspect-ratio: 2 / 1;
+  }
+  .visual_pin {
+    padding-top: 80px;
+    height: auto;
+  }
+  #visual {
+    height: 400px;
+  }
+  .visual_card {
+    display: none;
+  }
+
+  /* ----------------------------------- */
+  /* section1 */
+  /* ----------------------------------- */
+
+  #section1 {
+    padding-top: 40px;
+  }
+
+  #section1 .visual_roll {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+  #section1 .visual_roll ul {
+    display: flex;
+    width: max-content;
+    height: auto;
+    gap: 10px;
+    animation: visualRoll 30s linear infinite;
+  }
+  #section1 .visual_roll ul li {
+    width: clamp(150px, 30vw, 250px);
+    aspect-ratio: 200 / 270;
+    flex-shrink: 0;
+  }
+  #section1 .visual_roll ul li img {
+    width: 100%;
+  }
+  #section1 .visual_roll ul li video {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
+  @keyframes visualRoll {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(calc(-50% - 5px));
+    }
+  }
+  #section1 .mainText {
+    margin-top: 20px;
+  }
+  #section1 .mainText p {
+    margin-bottom: 20px;
+    padding-left: 10px;
+    font-size: clamp(16px, 0.9vw, 22px);
+    color: #333;
+
+    font-family: "Pretendard";
+    font-weight: 300;
+  }
+  #section1 .mainText h2 {
+    color: #f1927b;
+    /* overflow: hidden; */
+    font-size: clamp(70px, 19vw, 390px);
+    /* line-height: 380px; */
+    margin: 0;
+    width: 100%;
+    font-weight: normal;
+  }
+
+  /* ----------------------------------- */
+  /* section2 */
+  /* ----------------------------------- */
+  #section2 {
+    height: 80vh;
+  }
+  #section2 .inner {
+    height: 100%;
+  }
+  /* section_tit */
+  #section2 .section_tit {
+    padding-top: 30px;
+    text-align: center;
+    font-size: clamp(54px, 6vw, 84px);
+    font-family: "Cafe24Lovingu";
+    font-weight: 400;
+  }
+
+  /* rooms */
+  #section2 .rooms {
+    bottom: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    display: none;
+    gap: 16px;
+    width: 100%;
+    height: 80%;
+    background: #b09288;
+    color: #fff;
+    padding: 20px;
+  }
+  #section2 .rooms.on {
+    display: block;
+    /* height: 610px; */
+  }
+
+  /* rooms_intro */
+  #section2 .rooms_intro {
+    width: 100%;
+    padding: 0px;
+    position: relative;
+    margin-bottom: 10px;
+  }
+  #section2 .rooms_intro::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 0px;
+    height: 0;
+    background: rgba(255, 255, 255, 0);
+  }
+  #section2 .rooms_intro .rooms_title {
+    margin-bottom: 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  #section2 .rooms_intro .rooms_title h3 {
+    padding: 8px 4px;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 30%
+    );
+    font-size: clamp(24px, 2.8vw, 50px);
+    font-weight: 400;
+    text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    width: 200px;
+  }
+  #section2 .rooms_intro .rooms_title p {
+    font-size: 12px;
+  }
+  #section2 .rooms_title .count {
+    margin-top: 12px;
+    font-size: 13px;
+  }
+  #section2 .rooms_nav {
+    display: none;
+  }
+  #section2 .rooms_nav_mo {
+    display: flex;
+    position: absolute;
+    /* bottom: 10px; */
+    padding-bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  #section2 .rooms_nav_mo button {
+    border: 0;
+    padding: 0;
+    background: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  #section2 .rooms_nav_mo .room_number {
+    font-size: 13px;
+  }
+
+  /* rooms_main */
+  #section2 .rooms_main {
+    flex: none;
+    width: 100%;
+    height: auto;
+    /* aspect-ratio: 6.5 / 4; */
+    position: relative;
+  }
+  #section2 .rooms_main ul {
+    width: 100%;
+    /* aspect-ratio: 6.5/ 4; */
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+  }
+  #section2 .rooms_main ul::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 25%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s;
+  }
+  #section2 .rooms_main:hover ul::after {
+    opacity: 1;
+  }
+  #section2 .rooms_main:hover .rooms_main_nav button {
+    opacity: 1;
+  }
+  #section2 .rooms_main ul li {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* aspect-ratio: 6.5 / 4; */
+    opacity: 0;
+    transition: opacity 0.6s;
+  }
+  #section2 .rooms_main ul li.on {
+    opacity: 1;
+  }
+
+  #section2 .rooms_main ul li img,
+  #section2 .rooms_main ul li video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  /* rooms_main-nav */
+  #section2 .rooms_main_nav {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 15px;
+    padding-bottom: 10px;
+    z-index: 2;
+    bottom: 0;
+  }
+  #section2 .rooms_main_nav button {
+    font-size: 24px;
+    border: 0;
+    padding: 0;
+    background: none;
+    font-size: 13px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 1s;
+    opacity: 0;
+  }
+  #section2 .rooms_main_nav button span {
+    font-size: 20px;
+  }
+  #section2 .rooms_main_nav button:nth-child(1):hover {
+    transform: translateX(-20%);
+  }
+  #section2 .rooms_main_nav button:nth-child(3):hover {
+    transform: translateX(20%);
+  }
+  #section2 .rooms_main_nav button span {
+    display: block;
+  }
+
+  /* rooms_main-progress */
+  #section2 .rooms_main_nav .progress {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: #fff;
+  }
+  #section2 .rooms_main_nav .progress span {
+    font-size: 14px;
+  }
+  #section2 .progress_bar {
+    position: relative;
+    width: 110px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+  #section2 .progress_bar span {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 33.333%;
+    height: 100%;
+    background: #fff;
+  }
+
+  /* rooms_detail */
+  #section2 .rooms_detail {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.8),
+      rgba(0, 0, 0, 0.4)
+    );
+    padding: 30px;
+  }
+
+  #section2 .rooms_detail.on {
+    display: flex;
+  }
+  #section2 .rooms_detail::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 110%;
+    left: -15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  #section2 .room_info_btn {
+    display: block;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    z-index: 10;
+    font-size: 16px;
+    padding: 4px 20px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    font-family: "Caudex";
+    font-weight: normal;
+    border: 0;
+    border-radius: 50px;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity 0.5s;
+  }
+  #section2 .room_info_btn:hover {
+    opacity: 1;
+  }
+  #section2 .room_info_close {
+    display: block;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    background-color: transparent;
+    border: 0;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+  }
+  /* ----------------------------------- */
+  /* section3 */
+  /* ----------------------------------- */
+
+  #section3 {
+    min-height: 100vh;
+  }
+  footer {
+    /* display: none; */
   }
 }

@@ -167,43 +167,43 @@ window.addEventListener("scroll", () => {
 =================================== */
 
 function initVisualScroll() {
-  const visualTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".visual_pin",
-      start: "20% top",
-      end: "bottom bottom",
-      scrub: 1,
-    },
-  });
+  const mm = gsap.matchMedia();
 
-  visualTl
+  mm.add("(min-width: 701px)", () => {
+    const visualTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".visual_pin",
+        start: "20% top",
+        end: "bottom bottom",
+        scrub: 1,
+      },
+    });
 
-    // 메인 비디오 확대
-    .to("#visual .video_wrap", {
-      width: "100%",
-      height: "calc(100vh - 80px)",
-      duration: 1,
-      ease: "none",
-    })
-
-    // 주변 카드 사라짐
-    .to(
-      "#visual .visual_card li",
-      {
-        opacity: 0,
-        duration: 0.3,
+    visualTl
+      .to("#visual .video_wrap", {
+        width: "100%",
+        height: "calc(100vh - 80px)",
+        duration: 1,
         ease: "none",
-      },
-      0.7,
-    )
+      })
 
-    // 비디오 확대 완료 후 스크롤 유예시간
-    .to(
-      {},
-      {
-        duration: 0.5,
-      },
-    );
+      .to(
+        "#visual .visual_card li",
+        {
+          opacity: 0,
+          duration: 0.3,
+          ease: "none",
+        },
+        0.7,
+      )
+
+      .to(
+        {},
+        {
+          duration: 0.5,
+        },
+      );
+  });
 }
 
 /* ===================================
@@ -346,11 +346,13 @@ function changeRoom(changeBackground = true) {
   rooms[roomIndex].classList.add("on");
 
   // 객실 번호
-  const roomNumber = rooms[roomIndex].querySelector(
-    ".rooms_intro .room_number",
-  );
+  const roomNumbers = rooms[roomIndex].querySelectorAll(".room_number");
 
-  roomNumber.textContent = `${String(roomIndex + 1).padStart(2, "0")} / ${String(rooms.length).padStart(2, "0")}`;
+  roomNumbers.forEach((roomNumber) => {
+    roomNumber.textContent =
+      `${String(roomIndex + 1).padStart(2, "0")} / ` +
+      `${String(rooms.length).padStart(2, "0")}`;
+  });
 
   // 배경 변경
   if (changeBackground) {
@@ -380,34 +382,59 @@ function changeRoom(changeBackground = true) {
 
 // 객실 PREV / NEXT
 rooms.forEach((room) => {
-  const prev = room.querySelector(".rooms_intro .rooms_nav .prev");
-  const next = room.querySelector(".rooms_intro .rooms_nav .next");
+  const prevButtons = room.querySelectorAll(
+    ".rooms_nav .prev, .rooms_nav_mo .prev",
+  );
+
+  const nextButtons = room.querySelectorAll(
+    ".rooms_nav .next, .rooms_nav_mo .next",
+  );
 
   // NEXT
-  next.addEventListener("click", () => {
-    roomIndex++;
+  nextButtons.forEach((next) => {
+    next.addEventListener("click", () => {
+      roomIndex++;
 
-    if (roomIndex >= rooms.length) {
-      roomIndex = 0;
-    }
+      if (roomIndex >= rooms.length) {
+        roomIndex = 0;
+      }
 
-    changeRoom();
+      changeRoom();
+    });
   });
 
   // PREV
-  prev.addEventListener("click", () => {
-    roomIndex--;
+  prevButtons.forEach((prev) => {
+    prev.addEventListener("click", () => {
+      roomIndex--;
 
-    if (roomIndex < 0) {
-      roomIndex = rooms.length - 1;
-    }
+      if (roomIndex < 0) {
+        roomIndex = rooms.length - 1;
+      }
 
-    changeRoom();
+      changeRoom();
+    });
   });
 });
 
 // 초기 상태
 changeRoom(false);
+
+rooms.forEach((room) => {
+  const infoBtn = room.querySelector(".room_info_btn");
+  const closeBtn = room.querySelector(".room_info_close");
+  const detail = room.querySelector(".rooms_detail");
+
+  infoBtn.addEventListener("click", () => {
+    infoBtn.style.display = "none";
+    detail.classList.add("on");
+  });
+
+  closeBtn.addEventListener("click", () => {
+    detail.classList.remove("on");
+    infoBtn.style.display = "block";
+  });
+});
 
 /* ===================================
    SECTION 3
@@ -425,7 +452,7 @@ const facilitiesScroll = gsap.to(facilitiesTrack, {
   scrollTrigger: {
     trigger: "#section3",
 
-    start: () => (window.innerWidth <= 1500 ? "top top" : "5% top"),
+    start: () => (window.innerWidth <= 1400 ? "top top" : "5% top"),
 
     end: () => `+=${facilitiesTrack.scrollWidth - facilities.clientWidth}`,
 
